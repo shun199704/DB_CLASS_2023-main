@@ -15,39 +15,39 @@
   <form method="post" enctype=multipart/form-data action={{ url_for('manager.edit') }}>
     <table class="table table-bordered">
       <tr>
-        <th>商品編號</th>
+        <th>土地編號</th>
         <td><input class="form-control" type="text" value="{{ data.商品編號 }}" name="pid" readonly class="id_input"></td>
       </tr>
       <tr>
-        <th>商品名稱</th>
+        <th>土地名稱</th>
         <td><input class="form-control" type="text" value="{{ data.商品名稱 }}" name="name" required></td>
       </tr>
       <tr>
-        <th>單價</th>
+        <th>土地單價</th>
         <td><input class="form-control" type="text" value="{{ data.單價 }}" name="price" required></td>
       </tr>
       <tr>
-        <th>類別</th>
+        <th>土地類別</th>
         <td>
           <select class="form-control" name="category">
-            {% if data.類別 == 'CD' %}
-              <option value="BOOK">BOOK</option>
-              <option value="DVD">DVD</option>
-              <option value="CD" selected>CD</option>
-            {% elif data.類別 == 'DVD' %}
-              <option value="BOOK">BOOK</option>
-              <option value="DVD" selected>DVD</option>
-              <option value="CD">CD</option>
+            {% if data.類別 == '住宅區' %}
+              <option value="商業區">商業區</option>
+              <option value="農地">農地</option>
+              <option value="住宅區" selected>住宅區</option>
+            {% elif data.類別 == '農地' %}
+              <option value="商業區">商業區</option>
+              <option value="農地" selected>農地</option>
+              <option value="住宅區">住宅區</option>
             {% else %}
-              <option value="BOOK" selected>BOOK</option>
-              <option value="DVD">DVD</option>
-              <option value="CD">CD</option>
+              <option value="商業區" selected>商業區</option>
+              <option value="農地">農地</option>
+              <option value="住宅區">住宅區</option>
             {% endif %}
             
         </select>
       </tr>
       <tr>
-        <th>商品敘述</th>
+        <th>土地介紹</th>
         <td>
           <textarea class="form-control" name="description">{{ data.商品敘述 }}</textarea>
         </td>
